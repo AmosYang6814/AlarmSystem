@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">报警平台</string>
+    <string name="AlarmPageTitle">一键紧急报警</string>
+    <string name="UserInfoPage">用 户 预 存 信 息 录 入</string>
+    <string name="UserName">姓 名</string>
+    <string name="UserTel">手机号</string>
+    <string name="UserAddress">详细地址</string>
+    <string name="Remarks">报警信息预存</string>
+    <string-array name="RemarkClass">
+        <item>警情备注</item>
+        <item>灾情备注</item>
+        <item>病情备注</item>
+    </string-array>
+    
+    <string name="PoliceInfoPage">警 方 信 息 录 入</string>
+    <string name="registerSelect">登陆选项</string>
+    <string name="PoliceNumber">警 号</string>
+    <string name="DeviceNumber">设备号</string>
+    <string name="Password">登录密码</string>
+    <string name="DeviceAddress">执勤地址</string>
+    <string name="PoliceClassTitle">警务类型</string>
+    <string-array name="registerClass">
+        <item>警号登录</item>
+        <item>设备号登录</item>
+    </string-array>
+    <string-array name="PoliceClass">
+        <item>警事警务</item>
+        <item>灾情警务</item>
+        <item>病情警务</item>
+    </string-array>
+</resources>
