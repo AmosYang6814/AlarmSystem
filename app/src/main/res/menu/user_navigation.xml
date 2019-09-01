@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/single_1"
+            android:title="修改用户信息"
+            />
+
+        <item
+            android:id="@+id/single_2"
+            android:title="修改预存备注信息" >
+            <menu>
+                <group
+                    android:id="@+id/RemarkGroup"
+                    android:checkableBehavior="single">
+
+                    <item android:id="@+id/Remark_110"
+                        android:title="修改警情报警信息"/>
+                    <item android:id="@+id/Remark_119"
+                        android:title="修改灾情报警信息"/>
+                    <item android:id="@+id/Remark_120"
+                        android:title="修改病情报警信息"/>
+
+                </group>
+
+            </menu>
+
+
+        </item>
+    </group>
+</menu>

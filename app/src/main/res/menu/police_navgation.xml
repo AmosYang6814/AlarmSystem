@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/modifyPassword"
+        android:title="修改登录密码"></item>
+    <item
+        android:id="@+id/modefiyPoliceAdress"
+        android:title="修改警务站地址">
+
+    </item>
+
+
+</menu>
