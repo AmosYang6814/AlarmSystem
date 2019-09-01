@@ -28,4 +28,6 @@
         <item>灾情警务</item>
         <item>病情警务</item>
     </string-array>
+
+    <string name="AddDevice">添加设备</string>
 </resources>

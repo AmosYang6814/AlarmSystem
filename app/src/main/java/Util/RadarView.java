@@ -5,25 +5,27 @@ import android.graphics.*;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-public class RadarView extends FrameLayout {
+public abstract class RadarView extends FrameLayout {
 
     private Context mContext;
-    private int viewSize = 800;
-    private Paint mPaintLine;
-    private Paint mPaintCircle;
-    private Paint mPaintSector;
-    public boolean isstart = false;
-    private ScanThread mThread;
-    private Paint mPaintPoint;
+    protected int viewSize = 800;
+    protected Paint mPaintLine;
+    protected Paint mPaintCircle;
+    protected Paint mPaintSector;
+    protected boolean isstart = false;
+    protected ScanThread mThread;
+    protected Paint mPaintPoint;
+    protected int circleSpace=111;
+    protected Paint mCrossLine;
     //旋转效果起始角度
-    private int start = 0;
+    protected int start = 0;
 
 //    private int[] point_x;
 //    private int[] point_y;
 
-    private Shader mShader;
+    protected Shader mShader;
 
-    private Matrix matrix;
+    protected Matrix matrix;
 
 
     public final static int CLOCK_WISE=1;
@@ -33,14 +35,14 @@ public class RadarView extends FrameLayout {
 
     }
     //默认为顺时针呢
-    private final static int DEFAULT_DIERCTION=CLOCK_WISE;
+    protected final static int DEFAULT_DIERCTION=CLOCK_WISE;
 
 
 
     //设定雷达扫描方向
-    private int direction=DEFAULT_DIERCTION;
+    protected int direction=DEFAULT_DIERCTION;
 
-    private boolean threadRunning;
+    protected boolean threadRunning;
 
     {
         threadRunning = true;
@@ -61,42 +63,7 @@ public class RadarView extends FrameLayout {
 
     }
 
-    private void initPaint() {
-        // TODO Auto-generated method stub
-        setBackgroundColor(Color.TRANSPARENT);
-
-
-        //宽度=5，抗锯齿，描边效果的白色画笔
-        mPaintLine = new Paint();
-        mPaintLine.setStrokeWidth(5);
-        mPaintLine.setAntiAlias(true);
-        mPaintLine.setStyle(Paint.Style.STROKE);
-        mPaintLine.setColor(Color.WHITE);
-
-        //宽度=5，抗锯齿，描边效果的浅绿色画笔
-        mPaintCircle = new Paint();
-        mPaintCircle.setStrokeWidth(5);
-        mPaintCircle.setAntiAlias(true);
-        mPaintCircle.setStyle(Paint.Style.FILL);
-        mPaintCircle.setColor(0x99000000);
-
-        //暗绿色的画笔
-        mPaintSector = new Paint();
-        mPaintSector.setColor(0x9D00ff00);
-        mPaintSector.setAntiAlias(true);
-        mShader = new SweepGradient(viewSize / 2, viewSize / 2, Color.TRANSPARENT, Color.GREEN);
-        mPaintSector.setShader(mShader);
-
-        //白色实心画笔
-        mPaintPoint=new Paint();
-        mPaintPoint.setColor(Color.WHITE);
-        mPaintPoint.setStyle(Paint.Style.FILL);
-
-//        //随机生成的点，模拟雷达扫描结果
-//        point_x = utilTools.Getrandomarray(15, 20, 300);
-//        point_y = utilTools.Getrandomarray(15,20, 300);
-
-    }
+    public abstract  void initPaint();
 
     public void setViewSize(int size) {
         this.viewSize = size;
@@ -128,13 +95,15 @@ public class RadarView extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         // TODO Auto-generated method stub
-        canvas.drawCircle(viewSize / 2, viewSize / 2, 350, mPaintCircle);
-        canvas.drawCircle(viewSize / 2, viewSize / 2, 255, mPaintLine);
-        canvas.drawCircle(viewSize / 2, viewSize / 2, 125, mPaintLine);
-        canvas.drawCircle(viewSize / 2, viewSize / 2, 350, mPaintLine);
+        canvas.drawCircle(viewSize / 2, viewSize / 2, viewSize, mPaintCircle);
+
+        for(int i=125;i<viewSize;i=i+circleSpace){
+            canvas.drawCircle(viewSize / 2, viewSize / 2, i, mPaintLine);
+        }
         //绘制两条十字线
-        canvas.drawLine(viewSize / 2, 0, viewSize / 2, viewSize, mPaintLine);
-        canvas.drawLine(0, viewSize / 2, viewSize, viewSize / 2, mPaintLine);
+        if(mCrossLine==null)mCrossLine=mPaintLine;
+        canvas.drawLine(viewSize / 2, 0, viewSize / 2, viewSize, mCrossLine);
+        canvas.drawLine(0, viewSize / 2, viewSize, viewSize / 2, mCrossLine);
 
 
 
@@ -169,7 +138,7 @@ public class RadarView extends FrameLayout {
 
         //根据matrix中设定角度，不断绘制shader,呈现出一种扇形扫描效果
         canvas.concat(matrix);
-        canvas.drawCircle(viewSize / 2, viewSize / 2, 350, mPaintSector);
+        canvas.drawCircle(viewSize / 2, viewSize / 2, viewSize, mPaintSector);
         super.onDraw(canvas);
     }
 

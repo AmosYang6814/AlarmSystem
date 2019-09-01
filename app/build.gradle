@@ -26,4 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('ExternalJAR/Android_Map3D_SDK_V6.9.2_20190709.jar')
+    implementation 'com.android.support:design:28.0.0-rc02'
+    implementation files('ExternalJAR/BASE64.jar')
+    implementation files('ExternalJAR/gson-2.8.1.jar')
 }
