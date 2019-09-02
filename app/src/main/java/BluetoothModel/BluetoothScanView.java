@@ -1,15 +1,28 @@
-package Util;
+package BluetoothModel;
 
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 
 import com.example.amosyang.R;
 
+import java.util.ArrayList;
+
+import Util.RadarView;
+
 public class BluetoothScanView extends RadarView {
+
+    private ArrayList<BluetoothDevice> list=new ArrayList<>();
     Context context;
+
+
     public BluetoothScanView(Context context){
         super(context);
         this.context=context;
@@ -61,4 +74,5 @@ public class BluetoothScanView extends RadarView {
 //        point_x = utilTools.Getrandomarray(15, 20, 300);
 //        point_y = utilTools.Getrandomarray(15,20, 300);
     }
+
 }

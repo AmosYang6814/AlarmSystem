@@ -5,6 +5,8 @@ import android.graphics.*;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.example.amosyang.R;
+
 public abstract class RadarView extends FrameLayout {
 
     private Context mContext;
@@ -94,6 +96,10 @@ public abstract class RadarView extends FrameLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+
+
+
         // TODO Auto-generated method stub
         canvas.drawCircle(viewSize / 2, viewSize / 2, viewSize, mPaintCircle);
 
@@ -135,12 +141,22 @@ public abstract class RadarView extends FrameLayout {
 //            }
 //        }
 
+        DrawExtralImage(canvas);
+
 
         //根据matrix中设定角度，不断绘制shader,呈现出一种扇形扫描效果
         canvas.concat(matrix);
+
         canvas.drawCircle(viewSize / 2, viewSize / 2, viewSize, mPaintSector);
+
         super.onDraw(canvas);
     }
+
+
+    public void DrawExtralImage(Canvas canvas){
+
+    }
+
 
     public void setDirection(@RADAR_DIRECTION int direction) {
         if (direction != CLOCK_WISE && direction != ANTI_CLOCK_WISE) {
@@ -148,6 +164,8 @@ public abstract class RadarView extends FrameLayout {
         }
         this.direction = direction;
     }
+
+
 
 
 
