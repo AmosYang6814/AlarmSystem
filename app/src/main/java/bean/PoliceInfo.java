@@ -2,15 +2,37 @@ package bean;
 
 public class PoliceInfo {
 
-    public static final int SERVICE_TYPE_110=110;
-    public static final int SERVICE_TYPE_119=119;
-    public static final int SERVICE_TYPE_120=120;
+    public static final int SERVICE_TYPE_110=0;
+    public static final int SERVICE_TYPE_119=1;
+    public static final int SERVICE_TYPE_120=2;
 
     //设备号或警号都存储在PoliceNumber中
-    private String PoliceNumber;
-    private int ServiceType;
-    private String Address;
-    private String Password;
+    private String policeNumber;
+    private int serviceType;
+    private String address;
+    private String password;
+    private String jpushID;
+    private float longtitude;  //经度
+    private float lng;   //维度
+
+
+    public float getLong() {
+        return longtitude;
+    }
+
+    public PoliceInfo setLong(float aLong) {
+        longtitude = aLong;
+        return this;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+
+    public PoliceInfo setLng(float lng) {
+        this.lng = lng;
+        return this;
+    }
 
 
     /**
@@ -18,21 +40,21 @@ public class PoliceInfo {
      * @return
      */
     public String getPoliceNumber() {
-        return PoliceNumber;
+        return policeNumber;
     }
 
     public int getServiceType() {
-        return ServiceType;
+        return serviceType;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
-
+    public String getJpushID(){ return jpushID; }
     /**
      * 静态builder初始化该对象
      * @return
@@ -42,25 +64,26 @@ public class PoliceInfo {
         return policeInfo;
     }
 
-    /**
-     * 设置警号属性
-     * @param PoliceNumber
-     * @return
-     */
+
     public PoliceInfo setPoliceNumber(String PoliceNumber){
-        this.PoliceNumber=PoliceNumber;
+        this.policeNumber=PoliceNumber;
         return this;
     }
     public PoliceInfo setServiceType(int ServiceType){
-        this.ServiceType=ServiceType;
+        this.serviceType=ServiceType;
         return this;
     }
     public PoliceInfo setAddress(String Address){
-        this.Address=Address;
+        this.address=Address;
         return this;
     }
     public PoliceInfo setPassword(String Password){
-        this.Password=Password;
+        this.password=Password;
+        return this;
+    }
+
+    public PoliceInfo setJpushID(String ID){
+        this.jpushID=ID;
         return this;
     }
 

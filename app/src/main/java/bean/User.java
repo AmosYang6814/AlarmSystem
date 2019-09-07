@@ -7,6 +7,9 @@ import com.google.gson.Gson;
 import BluetoothModel.BluetoothConstant;
 
 public class User {
+    public static final int ALARM_110=0;
+    public static final int ALARM_119=1;
+    public static final int ALARM_120=2;
 
 
 
@@ -16,7 +19,33 @@ public class User {
     private String RamarkFor110;
     private String RamarkFor119;
     private String RamarkFor120;
+    private float Long;  //经度
+    private float lng;   //维度
+    private int status;        //0.110 ,,1,119,   2,120
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public float getLong() {
+        return Long;
+    }
+
+    public void setLong(float aLong) {
+        Long = aLong;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+
+    public void setLng(float lng) {
+        this.lng = lng;
+    }
 
     public String getName() {
         return Name;

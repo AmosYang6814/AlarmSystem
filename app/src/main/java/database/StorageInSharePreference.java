@@ -22,6 +22,7 @@ public class StorageInSharePreference {
     public static final String KEY_POLICE_PASSWORD="Password";
     public static final String KEY_POLICE_ADDRESS="PoliceAddrss";
     public static final String KEY_POLICE_SERVICE_TYPE="ServiceType";
+    public static final String KEY_POLICE_JPUSHID="JpushID";
 
 
     //存储用户信息
@@ -44,10 +45,12 @@ public class StorageInSharePreference {
 
         //对密码进行对称加密
         String Password= DESUtil.getEncryptString(police.getPassword());
+
         editor.putString(KEY_POLICE_NUMBER,police.getPoliceNumber());
         editor.putString(KEY_POLICE_PASSWORD,Password);
         editor.putString(KEY_POLICE_ADDRESS,police.getAddress());
         editor.putInt(KEY_POLICE_SERVICE_TYPE,police.getServiceType());
+        editor.putString(KEY_POLICE_JPUSHID,police.getJpushID());
         editor.commit();
     }
 
@@ -55,4 +58,29 @@ public class StorageInSharePreference {
      * 取出用户信息
      */
 
+    public static User getUserInformation(Context context){
+        User user=User.Builder();
+        SharedPreferences sharedPreferences= context.getSharedPreferences(KEY_USER_DATA,Context.MODE_PRIVATE);
+        user.setName(sharedPreferences.getString(KEY_USER_NAME,"用户"))
+                .setAdress(sharedPreferences.getString(KEY_USER_ADDRESS,"默认地址"))
+                .setPhone(sharedPreferences.getString(KEY_USER_PHONE,"000-0000"));
+        return user;
+    }
+
+    /**
+     * 取出警方信息
+     */
+
+    public static PoliceInfo getPoliceInformation(Context context){
+        PoliceInfo policeInfo=PoliceInfo.builder();
+        SharedPreferences sharedPreferences= context.getSharedPreferences(KEY_POLICE_DATA,Context.MODE_PRIVATE);
+        //对密码进行对称解密
+        String Password= DESUtil.getDecryptString(sharedPreferences.getString(KEY_POLICE_PASSWORD,"000"));
+        policeInfo.setAddress(sharedPreferences.getString(KEY_POLICE_ADDRESS,"未知地址"))
+            .setPoliceNumber(sharedPreferences.getString(KEY_POLICE_NUMBER,"000000"))
+                .setPassword(Password)
+                .setServiceType(sharedPreferences.getInt(KEY_POLICE_SERVICE_TYPE,0))
+                .setJpushID(sharedPreferences.getString(KEY_POLICE_JPUSHID,"000"));
+        return policeInfo;
+    }
 }

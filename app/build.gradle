@@ -1,14 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
+    useLibrary'org.apache.http.legacy'
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.amosyang"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                JPUSH_APPKEY : "6949f05e6aa2c7edee1e13a7",//值来自开发者平台取得的AppKey
+                JPUSH_CHANNEL: "default_developer",
+        ]
     }
     buildTypes {
         release {
@@ -29,4 +34,11 @@ dependencies {
     implementation 'com.android.support:design:28.0.0-rc02'
     implementation files('ExternalJAR/BASE64.jar')
     implementation files('ExternalJAR/gson-2.8.1.jar')
+    implementation files('libs/jcore-android-2.1.2.jar')
+    implementation files('libs/jpush-android-3.3.4.jar')
+    
+    /** 添加网络框架OkHttp3*/
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    /** 添加网络框架OkHttp3 的依赖io组件*/
+    implementation 'com.squareup.okio:okio:1.7.0'
 }

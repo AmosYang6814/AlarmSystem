@@ -1,144 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView android:id="@+id/UserInfoPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/PoliceInfoPage"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"
-        android:textSize="20sp"
-        />
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/PoliceInfoPage"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginTop="30dp"
+              android:textSize="20sp"
+    />
 
     <TextView android:id="@+id/registerSelect"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/registerSelect"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/UserInfoPage"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        />
+              android:layout_width="100dp"
+              android:layout_height="50dp"
+              android:text="@string/registerSelect"
+              android:gravity="center"
+              app:layout_constraintTop_toBottomOf="@id/UserInfoPage"
+              app:layout_constraintLeft_toLeftOf="parent"
+              android:layout_marginTop="50dp"
+              android:layout_marginLeft="20dp"
+    />
     <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/registerSelectInput"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/registerSelect"
-        android:entries="@array/registerClass"
-        android:layout_marginRight="30dp"
-        >
+            android:id="@+id/registerSelectInput"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/registerSelect"
+            android:entries="@array/registerClass"
+            android:layout_marginRight="30dp"
+    >
     </android.support.v7.widget.AppCompatSpinner>
 
     <TextView android:id="@+id/registerNumbertitle"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/PoliceNumber"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/registerSelect"
-        app:layout_constraintLeft_toLeftOf="@id/registerSelect"
-        android:layout_marginTop="10dp"
-        />
+              android:layout_width="100dp"
+              android:layout_height="50dp"
+              android:text="@string/PoliceNumber"
+              android:gravity="center"
+              app:layout_constraintTop_toBottomOf="@id/registerSelect"
+              app:layout_constraintLeft_toLeftOf="@id/registerSelect"
+              android:layout_marginTop="10dp"
+    />
     <EditText
-        android:id="@+id/registerNumberInput"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="@id/registerNumbertitle"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        />
+            android:id="@+id/registerNumberInput"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/registerNumbertitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp"
+    />
 
     <TextView android:id="@+id/passwordTitle"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/Password"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/registerNumbertitle"
-        app:layout_constraintLeft_toLeftOf="@id/registerNumbertitle"
-        android:layout_marginTop="10dp"
-        />
-    <EditText android:layout_width="220dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="@id/passwordTitle"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        android:inputType="textPassword"
-        />
+              android:layout_width="100dp"
+              android:layout_height="50dp"
+              android:text="@string/Password"
+              android:gravity="center"
+              app:layout_constraintTop_toBottomOf="@id/registerNumbertitle"
+              app:layout_constraintLeft_toLeftOf="@id/registerNumbertitle"
+              android:layout_marginTop="10dp"
+    />
+    <EditText
+            android:id="@+id/PasswordInput"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/passwordTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword"
+    />
 
     <TextView android:id="@+id/policeSelecttitle"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/PoliceClassTitle"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/passwordTitle"
-        app:layout_constraintLeft_toLeftOf="@id/passwordTitle"
-        android:layout_marginTop="10dp"
-        />
+              android:layout_width="100dp"
+              android:layout_height="50dp"
+              android:text="@string/PoliceClassTitle"
+              android:gravity="center"
+              app:layout_constraintTop_toBottomOf="@id/passwordTitle"
+              app:layout_constraintLeft_toLeftOf="@id/passwordTitle"
+              android:layout_marginTop="10dp"
+    />
     <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/policeSelectInput"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/policeSelecttitle"
-        android:entries="@array/PoliceClass"
-        android:layout_marginRight="30dp"
-        >
+            android:id="@+id/policeSelectInput"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/policeSelecttitle"
+            android:entries="@array/PoliceClass"
+            android:layout_marginRight="30dp"
+    >
     </android.support.v7.widget.AppCompatSpinner>
 
     <TextView android:id="@+id/policeAddress"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/Password"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/policeSelecttitle"
-        app:layout_constraintLeft_toLeftOf="@id/policeSelecttitle"
-        android:layout_marginTop="10dp"
-        />
+              android:layout_width="100dp"
+              android:layout_height="50dp"
+              android:text="@string/Password"
+              android:gravity="center"
+              app:layout_constraintTop_toBottomOf="@id/policeSelecttitle"
+              app:layout_constraintLeft_toLeftOf="@id/policeSelecttitle"
+              android:layout_marginTop="10dp"
+    />
 
     <EditText
-        android:id="@+id/policeAddressInput1"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="@id/policeAddress"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        android:inputType="textPassword"
-        />
+            android:id="@+id/policeAddressInput1"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/policeAddress"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword"
+    />
     <EditText
-        android:id="@+id/policeAddressInput2"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toBottomOf="@id/policeAddress"
-        app:layout_constraintRight_toRightOf="@id/policeAddressInput1"
-        app:layout_constraintLeft_toLeftOf="@id/policeAddress"
-        android:inputType="textPassword"
-        />
+            android:id="@+id/policeAddressInput2"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/policeAddress"
+            app:layout_constraintRight_toRightOf="@id/policeAddressInput1"
+            app:layout_constraintLeft_toLeftOf="@id/policeAddress"
+            android:inputType="textPassword"
+    />
 
     <Button
-        android:id="@+id/PoliceLoginButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text=" 登 录 "
-        android:textSize="20dp"
-        android:textColor="@color/whitesmoke"
-        android:background="@drawable/shape_btn"
-        android:layout_marginBottom="50dp"
-        />
-
-
-
-
+            android:id="@+id/PoliceLoginButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text=" 登 录 "
+            android:textSize="20dp"
+            android:textColor="@color/whitesmoke"
+            android:background="@drawable/shape_btn"
+            android:layout_marginBottom="50dp"
+    />
 
 
 </android.support.constraint.ConstraintLayout>

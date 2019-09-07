@@ -43,6 +43,7 @@
         </com.amap.api.maps.MapView>
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/Scan_annotion"
             android:layout_width="270dp"
             android:layout_height="400dp"
             android:alpha="0.99"

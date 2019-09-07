@@ -217,6 +217,11 @@ public class ScanBluetoothActivity extends AppCompatActivity   {
         textparams=null;
     }
 
+    /**
+     * 设置按钮点击相应
+     * @param imageButton
+     * @param device
+     */
     private void setDeviceButtonListener(final ImageButton imageButton, final BluetoothDevice device){
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
