@@ -27,6 +27,8 @@ import Util.RadarView;
 import cn.jpush.android.api.JPushInterface;
 import com.google.gson.Gson;
 
+import java.io.UnsupportedEncodingException;
+
 
 //监听JPUSH的推送，并且在服务端注册
 public class ScanActivity extends AppCompatActivity {
@@ -92,6 +94,22 @@ public class ScanActivity extends AppCompatActivity {
             policeInfo.setLng((float) aMapLocation.getLatitude());
             policeInfo.setLong((float)aMapLocation.getLongitude());
 
+            try {
+                Net net=new Net("Http://192.168.0.102:8080/police",policeInfo) {
+                    @Override
+                    public void OnResponse() {
+                     Log.i("SCaActivity网络追踪","success");
+                    }
+
+                    @Override
+                    public void OnFailure() {
+                        Log.i("SCaActivity网络追踪","faild");
+                    }
+                };
+                net.execute("");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
 
 
         }

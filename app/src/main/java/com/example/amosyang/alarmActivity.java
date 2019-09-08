@@ -84,7 +84,7 @@ public class alarmActivity extends AppCompatActivity {
                 Log.i("Net_link","dianji");
 
                 try{
-                final Net net=new Net("http://106.14.12.46:8080/test",user,1) {
+                final Net net=new Net("http://106.14.12.46:8080/test",user) {
                     @Override
                     public void OnResponse() {
                         Log.i("Net_link", "response "+getrespose().code());

@@ -19,7 +19,7 @@ public class User {
     private String RamarkFor110;
     private String RamarkFor119;
     private String RamarkFor120;
-    private float Long;  //经度
+    private float longtitude;  //经度
     private float lng;   //维度
     private int status;        //0.110 ,,1,119,   2,120
 
@@ -32,11 +32,11 @@ public class User {
     }
 
     public float getLong() {
-        return Long;
+        return longtitude;
     }
 
     public void setLong(float aLong) {
-        Long = aLong;
+        longtitude = aLong;
     }
 
     public float getLng() {

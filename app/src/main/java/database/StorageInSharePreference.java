@@ -23,6 +23,11 @@ public class StorageInSharePreference {
     public static final String KEY_POLICE_ADDRESS="PoliceAddrss";
     public static final String KEY_POLICE_SERVICE_TYPE="ServiceType";
     public static final String KEY_POLICE_JPUSHID="JpushID";
+    public static final String KEY_LOGIN_TYPE="login";
+    public static final String KEY_LOGIN_DATA="login_data";
+    public static final String KEY_LOGIN_HAS="has_login";
+    public static final int LOGIN_USER=2;
+    public static final int LOGIN_POLICE=3;
 
 
     //存储用户信息
@@ -83,4 +88,31 @@ public class StorageInSharePreference {
                 .setJpushID(sharedPreferences.getString(KEY_POLICE_JPUSHID,"000"));
         return policeInfo;
     }
+
+    public static Boolean HasLogin(Context context){
+        SharedPreferences sharedPreferences= context.getSharedPreferences(KEY_LOGIN_DATA,Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(KEY_LOGIN_HAS,false);
+    }
+
+    public static int LoginType(Context context){
+        SharedPreferences sharedPreferences= context.getSharedPreferences(KEY_LOGIN_DATA,Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(KEY_LOGIN_TYPE,1);
+    }
+
+    public static void ResigsterLogin(Context context,Object object){
+        SharedPreferences sharedPreferences= context.getSharedPreferences(KEY_LOGIN_DATA,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putBoolean(KEY_LOGIN_HAS,true);
+        if(object.getClass().equals(User.class))
+            editor.putInt(KEY_LOGIN_TYPE,LOGIN_USER);
+        if(object.getClass().equals(PoliceInfo.class))
+            editor.putInt(KEY_LOGIN_TYPE,LOGIN_POLICE);
+        editor.commit();
+
+
+
+    }
+
+
+
 }

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import bean.PoliceInfo;
 import com.amap.api.maps.AMap;
 import com.google.gson.Gson;
@@ -56,6 +57,7 @@ public class PoliceLoginActivity extends AppCompatActivity {
                 .setAddress(Address.getText().toString())
                 .setServiceType(servicetype.getSelectedItemPosition());
         StorageInSharePreference.StoragePoliceData(PoliceLoginActivity.this,policeInfo);
+        StorageInSharePreference.ResigsterLogin(PoliceLoginActivity.this,policeInfo);
         return policeInfo;
     }
 
@@ -70,12 +72,17 @@ public class PoliceLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 PoliceInfo policeInfo=new PoliceInfo();
 
-               //if(Number.getText().length()!=0) {
+               if(Number.getText().length()!=0) {
                    Log.i("Police登录跟踪","dasf");
+
+                   /**
+                    * 保存信息，应当放在网络连接成功回调函数中
+                    */
                    policeInfo = save(policeInfo);
 
+                   //网络登录
                    try {
-                       Net net=new Net("Http://192.168.0.102:8080/police/login",policeInfo,1) {
+                       Net net=new Net("Http://192.168.0.102:8080/police/login",policeInfo) {
                            @Override
                            public void OnResponse() {
                                Log.i("Police_login","success");
@@ -84,6 +91,7 @@ public class PoliceLoginActivity extends AppCompatActivity {
                            @Override
                            public void OnFailure() {
                                Log.i("Police_login","Faild");
+                               Toast.makeText(PoliceLoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
                                //Log.i("Police_login",getrespose().code()+"");
                            }
                        };
@@ -98,7 +106,7 @@ public class PoliceLoginActivity extends AppCompatActivity {
                    i.putExtra("Data", new Gson().toJson(policeInfo));
                    startActivity(i);
                }
-            //}
+            }
         });
     }
 
